@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 큰 차량 화면(창 높이 900dp 이상). Pleos Connect 에뮬레이터: 앱 창 1682×1210dp(혼자) / 약 830×1210dp(1:1), 160dpi -->
+<resources>
+    <dimen name="screen_padding">32dp</dimen>
+    <dimen name="gap">20dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+    <dimen name="card_radius">28dp</dimen>
+
+    <dimen name="text_caption">22sp</dimen>
+    <dimen name="text_label">26sp</dimen>
+    <dimen name="text_body">34sp</dimen>
+    <dimen name="text_body_large">40sp</dimen>
+    <dimen name="text_title">36sp</dimen>
+    <dimen name="text_tile">30sp</dimen>
+    <dimen name="text_number">52sp</dimen>
+    <dimen name="text_number_large">72sp</dimen>
+
+    <dimen name="button_height">100dp</dimen>
+    <dimen name="button_text">30sp</dimen>
+    <dimen name="button_corner">20dp</dimen>
+    <dimen name="gauge_min_height">300dp</dimen>
+    <!-- 리포트: 점수 링 크기(세로 화면), 시간 비율 막대 두께 -->
+    <dimen name="report_ring">400dp</dimen>
+    <dimen name="report_bar_height">30dp</dimen>
+</resources>

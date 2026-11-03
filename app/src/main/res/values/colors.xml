@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 낮: Pleos 기본 화면처럼 밝은 배경. 차가 야간 모드가 되면 values-night/colors.xml(어두운 배경)로 바뀐다 -->
+<resources>
+    <color name="bg">#FFFFFF</color>
+    <color name="surface">#F2F4F7</color>
+    <color name="surface_high">#E4E7EC</color>
+    <color name="text_primary">#121519</color>
+    <color name="text_secondary">#5B6472</color>
+
+    <!-- 흐름 상태 색(흰 배경에서도 잘 보이게 조금 진하게) -->
+    <color name="state_smooth">#17A05A</color>
+    <color name="state_slow">#D98A00</color>
+    <color name="state_over">#E0383A</color>
+    <color name="state_congested">#3F66E0</color>
+    <color name="state_unknown">#8A93A0</color>
+
+    <!-- 게이지 -->
+    <color name="gauge_track">#E4E7EC</color>
+    <color name="gauge_zone">#6617A05A</color>
+    <!-- 제한속도를 넘는 구간(옅은 빨강) -->
+    <color name="gauge_over">#33E0383A</color>
+    <color name="accent">#2F6BF0</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="banner_bg">#1FD98A00</color>
+    <!-- 시연 차로 뷰·경로 미니맵 -->
+    <color name="lane_road">#D9DEE5</color>
+    <color name="lane_line">#FFFFFF</color>
+    <color name="lane_car">#8A94A3</color>
+    <color name="route_fast">#3B4A5E</color>
+    <color name="route_city">#8FB0F0</color>
+    <!-- 미니맵에서 이미 지나온 길 -->
+    <color name="route_done">#D3D8DF</color>
+    <!-- 차로 뷰: 추월차로에 있을 때 그 차로를 옅게 칠한다 -->
+    <color name="lane_passing">#26D98A00</color>
+    <!-- 차로 뷰 위 안내 알약 배경 -->
+    <color name="lane_pill">#E6FFFFFF</color>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 임시 아이콘: 세 개의 물결(흐름). 앱 이름이 정해지면 교체 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#1A1F27"
+        android:pathData="M54,4a50,50 0,1 1,0 100a50,50 0,1 1,0 -100z" />
+    <path
+        android:strokeColor="#34C77B"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:pathData="M24,42 C34,32 44,52 54,42 C64,32 74,52 84,42" />
+    <path
+        android:strokeColor="#F2F4F7"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:pathData="M24,58 C34,48 44,68 54,58 C64,48 74,68 84,58" />
+    <path
+        android:strokeColor="#4C8DFF"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:pathData="M24,74 C34,64 44,84 54,74 C64,64 74,84 84,74" />
+</vector>

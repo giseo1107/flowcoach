@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 주행 후 흐름 리포트(세로: 내비 옆 1:1 반쪽 화면).
+     위→아래: 점수 링 · 거리/시간 · 시간 비율 막대 · 다음 주행 한 가지 · 점수에서 빠진 것 · 닫기.
+     앱 혼자 가로로 띄우면 layout-land/activity_report.xml 을 쓴다. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <!-- 점수 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/report_title"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label" />
+
+            <com.giseo.flowcoach.ui.ScoreRingView
+                android:id="@+id/score_ring"
+                android:layout_width="@dimen/report_ring"
+                android:layout_height="@dimen/report_ring"
+                android:layout_marginTop="@dimen/gap" />
+
+            <TextView
+                android:id="@+id/summary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_body"
+                tools:text="11.3 km · 7분 48초" />
+        </LinearLayout>
+
+        <include layout="@layout/view_report_share" />
+
+        <include layout="@layout/view_report_tip" />
+
+        <!-- 점수에서 빠진 것(행은 코드에서 채운다) -->
+        <LinearLayout
+            android:id="@+id/report_rows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/report_rows_title"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/close_button"
+            style="@style/CarButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:text="@string/close" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 코치 패널(세로): 내비 옆 1:1 반쪽 화면이 기본 사용 상황.
+     위→아래: 도로 · 원형 흐름 게이지(지금 속도 + 상태 문장) · 숫자 세 칸 · 최근 안내 · 모드 버튼.
+     앱 혼자 가로로 띄우면 layout-land/activity_main.xml 을 쓴다. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:padding="@dimen/screen_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 시연 중에만 보이는 표시(실제 주행과 구분) -->
+        <TextView
+            android:id="@+id/demo_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_banner"
+            android:paddingStart="16dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="6dp"
+            android:text="@string/demo_banner"
+            android:textColor="@color/state_slow"
+            android:textSize="@dimen/text_label"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <!-- 지금 모드 · 도로 이름 · 차로 상태 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="14dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="4dp"
+                android:singleLine="true"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_label"
+                tools:text="🔇 조용한 모드" />
+
+            <TextView
+                android:id="@+id/road_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label"
+                tools:text="경부고속도로 상행" />
+
+            <TextView
+                android:id="@+id/lane_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label"
+                tools:text="차로 유지" />
+        </LinearLayout>
+
+        <!-- 남는 높이를 모두 쓰는 주행 영역.
+             평소: 원형 흐름 게이지만(누르면 "지금 어때?").
+             시연 중: 왼쪽 = 차로 뷰(계기판 대신 차로·주변 차), 오른쪽 = 작은 게이지 + 경로 미니맵(실제 도로 시연) -->
+        <LinearLayout
+            android:id="@+id/drive_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:minHeight="@dimen/gauge_min_height"
+            android:orientation="horizontal">
+
+            <com.giseo.flowcoach.ui.DemoLaneView
+                android:id="@+id/lane_view"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/gap"
+                android:layout_weight="1.1"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.giseo.flowcoach.ui.FlowGaugeView
+                    android:id="@+id/flow_gauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/gauge_description"
+                    android:focusable="true" />
+
+                <com.giseo.flowcoach.ui.RouteMiniMapView
+                    android:id="@+id/route_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/gap"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/view_flow_info" />
+
+        <!-- 시연 중: 이 장면에서 나와야 하는 반응 -->
+        <TextView
+            android:id="@+id/demo_expected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:background="@drawable/bg_banner"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:padding="@dimen/gap"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_label"
+            android:visibility="gone"
+            tools:text="장면: 추월 후 미복귀\n나와야 하는 반응: 왼쪽 차로에 20초 넘게 머물면 …"
+            tools:visibility="visible" />
+
+        <!-- 최근 안내 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <TextView
+                android:id="@+id/message_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="3"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_body"
+                tools:text="추월을 마쳤다면 오른쪽 차로로 돌아가 볼까요?" />
+
+            <TextView
+                android:id="@+id/caption_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_caption"
+                tools:text="추월 후 왼쪽 차로에 계속 머무는 중" />
+
+            <ProgressBar
+                android:id="@+id/demo_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="8dp"
+                android:max="100"
+                android:progressTint="@color/accent"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 주행 중 버튼은 모드 전환 하나만 -->
+        <Button
+            android:id="@+id/mode_button"
+            style="@style/CarButton.Tonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:text="@string/mode_to_quiet" />
+
+        <!-- 주행 전·주차 중·시연 중에만 보이는 버튼(주행 중에는 숨김) -->
+        <LinearLayout
+            android:id="@+id/action_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/demo_button"
+                style="@style/CarButton.Tonal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap"
+                android:layout_weight="1"
+                android:text="@string/start_demo" />
+
+            <Button
+                android:id="@+id/console_button"
+                style="@style/CarButton.Tonal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/start_console" />
+        </LinearLayout>
+
+        <!-- 개발용 상태 줄(음성 상태 · 창 크기). 나중에 설정 › 개발자 옵션으로 옮긴다 -->
+        <TextView
+            android:id="@+id/voice_status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_caption"
+            tools:text="🔊 음성 안내 켜짐 · 창 540×780dp · 240dpi" />
+    </LinearLayout>
+
+    <include layout="@layout/view_scene_panel" />
+</FrameLayout>

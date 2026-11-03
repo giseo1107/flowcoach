@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 리포트: 흐름에 맞춘 시간 비율(막대 + 색 설명). 세로·가로 리포트가 함께 쓴다. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/gap"
+    android:background="@drawable/bg_card"
+    android:orientation="vertical"
+    android:padding="@dimen/card_padding">
+
+    <TextView
+        android:id="@+id/share_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_body"
+        android:textStyle="bold"
+        tools:text="흐름에 맞춘 시간 89%" />
+
+    <com.giseo.flowcoach.ui.TimeShareBarView
+        android:id="@+id/share_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/report_bar_height"
+        android:layout_marginTop="@dimen/gap" />
+
+    <TextView
+        android:id="@+id/share_legend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_label"
+        tools:text="● 맞음 89%   ● 느림 6%   ● 초과 5%" />
+</LinearLayout>

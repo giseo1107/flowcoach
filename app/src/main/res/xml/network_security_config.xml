@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  암호화 안 된 HTTP는 에뮬레이터 안의 Virtual Console(127.0.0.1:8088)에만 허용한다.
+  시연 주행 때 에뮬레이터 차를 함께 움직이는 용도. 나머지(교통정보 API 등)는 모두 HTTPS.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>

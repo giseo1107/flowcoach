@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name">흐름 코치</string>
+
+    <string name="start_demo">시연 주행</string>
+    <string name="start_console">콘솔 연동 주행</string>
+    <string name="mode_coach">코치 모드</string>
+    <string name="mode_quiet">조용한 모드</string>
+    <!-- 모드 버튼은 '누르면 바뀔 모드'를, 위쪽 표시는 '지금 모드'를 보여준다 -->
+    <string name="mode_to_coach">코치 모드로</string>
+    <string name="mode_to_quiet">조용한 모드로</string>
+    <string name="mode_chip_coach">🔊 코치 모드</string>
+    <string name="mode_chip_quiet">🔇 조용한 모드</string>
+    <string name="mode_changed_coach">코치 모드: 주행 중에 말로 알려드려요.</string>
+    <string name="mode_changed_quiet">조용한 모드: 주행 중엔 말하지 않아요. 위험할 때만 경고음이 울리고, 나머지는 리포트로 정리해요.</string>
+    
+    <string name="unit_kmh">km/h</string>
+    <string name="state_smooth">흐름에 잘 맞아요</string>
+    <string name="state_slow">흐름보다 느려요</string>
+    <string name="state_over">제한속도를 넘었어요</string>
+    <string name="state_congested">정체 구간이에요</string>
+    <string name="state_unknown">대기 중</string>
+
+    <!-- 코치 패널 -->
+    <string name="info_recommended">권장 속도</string>
+    <string name="info_limit">제한</string>
+    <string name="info_flow">흐름</string>
+    <string name="info_flow_source">흐름 · %1$s</string>
+    <string name="gauge_description">흐름 게이지. 누르면 지금 상태를 음성으로 알려줘요</string>
+    <string name="road_idle">주행을 시작하면 도로를 찾아요</string>
+    <string name="road_assumed">도로 정보 없음 · 흐름 가정값</string>
+    <string name="end_drive">주행 끝내기</string>
+    <string name="dev_window">창 %1$d×%2$ddp · %3$ddpi</string>
+    <string name="lane_keep">차로 유지</string>
+    <string name="lane_passing">추월 후 복귀 전</string>
+    <string name="demo_banner">실제 주행이 아닌, 시연 주행입니다</string>
+    <string name="demo_pick_title">시연할 장면을 골라 주세요</string>
+    <string name="demo_only_parked">시연 주행은 주차(P) 상태에서 할 수 있어요.</string>
+    <string name="demo_scene_start">시연 장면: %1$s. %2$s</string>
+    <string name="demo_scene_finished">‘%1$s’ 장면이 끝났어요. 다른 장면을 골라 보세요.</string>
+    <string name="demo_expected">장면: %1$s · %2$s\n나와야 하는 반응: %3$s</string>
+    <string name="demo_other_scene">다른 장면</string>
+    <!-- 조용한 모드에서 시연하면 나와야 하는 반응이 달라진다 -->
+    <string name="demo_quiet_danger">🔇 조용한 모드: 말 대신 경고음(띵-동) + 빨간 강조</string>
+    <string name="demo_quiet_habit">🔇 조용한 모드: 소리 없이 안내 문장만 보여요</string>
+    <string name="demo_quiet_none">🔇 조용한 모드: 이 안내는 하지 않아요(코치 모드로 바꿔서 보세요)</string>
+    <string name="demo_stop">시연 종료</string>
+    <string name="close">닫기</string>
+    <string name="gear_park">주차 중</string>
+    <string name="gear_reverse">후진 중</string>
+    <string name="gear_neutral">중립</string>
+    <string name="coaching_paused">D에서 코칭을 다시 시작해요</string>
+
+    <string name="idle_message">주행을 시작하면 흐름에 맞는지 음성으로 알려드릴게요.</string>
+    <string name="idle_message_quiet">조용한 모드예요. 주행 중엔 말하지 않고, 위험할 때만 경고음으로 알려드려요.</string>
+    <string name="idle_message_auto">기어를 D로 바꾸면 저절로 시작해서, 흐름에 맞는지 음성으로 알려드릴게요.</string>
+    <string name="idle_message_quiet_auto">조용한 모드예요. D로 바꾸면 저절로 시작하고, 주행 중엔 말 없이 위험할 때만 경고음으로 알려드려요.</string>
+    <string name="auto_start_message">D로 바꿔서 주행을 시작했어요. 흐름에 맞춰 함께 갈게요.</string>
+    <string name="auto_end_short">주차해서 주행을 마쳤어요. 짧은 주행이라 리포트는 만들지 않았어요.</string>
+    <string name="standby_notification">대기 중 · 기어를 D로 바꾸면 코칭을 시작해요</string>
+    <string name="demo_start_message">시연 주행을 시작할게요.</string>
+    <string name="console_start_message">콘솔 연동 주행을 시작할게요. 방향지시등, 브레이크, 크루즈 속도를 조작해 보세요.</string>
+    <string name="vehicle_permission_needed">차량 신호를 읽으려면 권한이 필요해요.</string>
+    <string name="listening">듣고 있어요…</string>
+    <string name="live_traffic_on">실시간 교통정보로 흐름을 판단해요. (흐름 칸을 길게 누르면 가정값으로 바뀌어요)</string>
+    <string name="live_traffic_off">가정값(흐름 88km/h)으로 흐름을 판단해요. (흐름 칸을 길게 누르면 실시간으로 바뀌어요)</string>
+    <string name="ask_before_drive">주행을 시작하면 지금 상태를 알려드릴게요.</string>
+
+    <!-- 실제 도로 시연 -->
+    <string name="route_tile">🛣 실제 도로 시연\n실제 도로 위에서 실시간 교통으로 판단해요</string>
+    <string name="route_title">실제 도로 시연</string>
+    <string name="route_intro">실제 도로 좌표 위를 달리며, 그 위치의 실시간 교통정보로 판단해요. 실제 주행이 아닌 시연이에요.</string>
+    <string name="route_section_route">1. 경로</string>
+    <string name="route_section_tuning">2. 판단 기준값</string>
+    <string name="route_section_preview">3. 이 경로에서 나올 수 있는 안내</string>
+    <string name="route_start">시연 시작</string>
+    <string name="route_card">%1$s · 약 %2$s · 상황 %3$d개</string>
+    <string name="route_estimate">예상 소요 약 %1$s · 나올 수 있는 안내 %2$d/%3$d개</string>
+    <string name="route_auto_result">자동: 이 경로에는 ‘%1$s’ 단계가 맞아요</string>
+    <string name="route_note_passing">· 실제 흐름이 80km/h보다 느리면 추월 후 미복귀 안내는 나오지 않아요(도로교통법상 정체 땐 추월차로 주행 가능).</string>
+    <string name="route_note_quiet">· 지금 조용한 모드라 칭찬·느림 안내는 나오지 않고, 과속·급제동은 경고음으로 알려요.</string>
+    <string name="route_note_traffic">· 실시간 교통을 못 받으면 가정값(흐름 %1$dkm/h)으로 판단해요. 끝까지 달리면 리포트를 보여줘요.</string>
+    <string name="route_none">들어 있는 경로가 없어요.</string>
+    <!-- 내 경로 만들기 -->
+    <string name="lane_default_road">고속도로</string>
+    <string name="route_group_custom">내 경로 · 검색으로 만든 경로</string>
+    <string name="custom_title">🔎 내 경로 만들기</string>
+    <string name="custom_hint_to">목적지 검색 (예: 강남역, 수원역)</string>
+    <string name="custom_hint_from">출발지 검색 (예: 판교역)</string>
+    <string name="custom_target_to">도착 고르기</string>
+    <string name="custom_target_from">출발 고르기</string>
+    <string name="custom_search">검색</string>
+    <string name="custom_from">출발: %1$s</string>
+    <string name="custom_to">도착: %1$s</string>
+    <string name="custom_here">현재 위치</string>
+    <string name="custom_none">아직 안 골랐어요</string>
+    <string name="custom_situations">넣을 상황</string>
+    <string name="custom_build">경로 만들기</string>
+    <string name="custom_searching">검색 중…</string>
+    <string name="custom_no_result">검색 결과가 없어요.</string>
+    <string name="custom_routing">실제 경로를 받는 중… (OpenStreetMap)</string>
+    <string name="custom_done">내 경로를 만들었어요: %1$s · 고속도로·자동차전용도로 %2$.1fkm</string>
+    <string name="custom_fail">%1$s 실패: %2$s</string>
+    <string name="custom_no_key">카카오 키가 없어서 장소 검색을 할 수 없어요. local.properties에 KAKAO_REST_API_KEY=키 를 넣고 다시 빌드해 주세요.</string>
+    <string name="custom_no_start">현재 위치를 아직 몰라요. ‘출발 고르기’로 출발지를 검색해 주세요.</string>
+    <string name="custom_need_to">목적지를 먼저 골라 주세요.</string>
+    <string name="custom_need_situation">넣을 상황을 하나 이상 골라 주세요.</string>
+    <string name="route_group_full">한 번에 보기 · 한 경로에 상황 여러 개</string>
+    <string name="route_group_feature">기능별 짧은 경로 · 상황 하나씩, 약 2~3분</string>
+    <string name="check_running">실시간 교통을 확인하고 있어요…</string>
+    <string name="check_ok">✓ 실제 교통이 시나리오와 맞아요 · %1$s %2$s\n곧 시작해요.</string>
+    <string name="check_mismatch">실제 교통이 시나리오와 달라요 · %1$s %2$s</string>
+    <string name="check_question">어떻게 시작할까요?</string>
+    <string name="check_fail">실시간 교통을 받지 못했어요(%1$s).\n가정값(흐름 %2$dkm/h)으로 판단하게 돼요.</string>
+    <string name="check_no_key">교통정보 키가 없어서 가정값(흐름 %1$dkm/h)으로 판단해요.</string>
+    <string name="check_live">실제 교통대로</string>
+    <string name="check_assumed">시나리오 흐름(%1$dkm/h)으로</string>
+    <string name="check_start">이대로 시작</string>
+    <string name="route_demo_start">실제 도로 시연: %1$s. 기준값 %2$s.</string>
+
+    <string name="report_title">오늘의 흐름 리포트</string>
+    <string name="report_summary">%1$s km · %2$s</string>
+    <string name="report_share_title">흐름에 맞춘 시간 %1$d%%</string>
+    <string name="report_legend_smooth">맞음 %1$d%%</string>
+    <string name="report_legend_slow">느림 %1$d%%</string>
+    <string name="report_legend_over">초과 %1$d%%</string>
+    <string name="report_legend_congested">정체 %1$s(평가 제외)</string>
+    <string name="report_tip_label">다음 주행 한 가지</string>
+    <string name="report_tip_perfect">큰 감점 없이 달렸어요. 오늘처럼만 달리면 돼요.</string>
+    <string name="report_rows_title">점수에서 빠진 것</string>
+    <string name="report_none">✓ 없음</string>
+    <string name="report_times">%1$d회</string>
+    <string name="report_warnings">경고 %1$d회</string>
+    <string name="report_points">−%1$s점</string>
+    <!-- 항목별: 제목 · 한 줄 설명 · 다음 주행 팁 -->
+    <string name="report_passing_title">추월 후 미복귀</string>
+    <string name="report_passing_desc">추월을 마치면 오른쪽 차로로 돌아가요</string>
+    <string name="report_passing_tip">추월을 마치면 오른쪽 차로로 돌아가 보세요.</string>
+    <string name="report_lane_title">잦은 차로 변경</string>
+    <string name="report_lane_desc">차로 변경 %1$d회 · 한 차로를 유지하면 흐름이 부드러워요</string>
+    <string name="report_lane_tip">한 차로를 유지하며 달려 보세요.</string>
+    <string name="report_brake_title">급감속</string>
+    <string name="report_brake_desc">앞차와 간격을 두면 줄어요 · 동승자도 편해요</string>
+    <string name="report_brake_tip">앞차와 간격을 조금 더 두고 달려 보세요.</string>
+    <string name="report_over_title">제한속도 초과</string>
+    <string name="report_over_desc">흐름이 빨라도 제한속도 안에서 맞춰요</string>
+    <string name="report_over_tip">흐름이 빨라도 제한속도는 넘지 않게 달려 보세요.</string>
+    <string name="report_slow_title">흐름보다 느림</string>
+    <string name="report_slow_desc">흐름보다 많이 느리면 뒤차가 급하게 줄여요</string>
+    <string name="report_slow_tip">흐름 속도에 조금 더 맞춰 달려 보세요.</string>
+    <!-- 경로 미니맵 아래 선 색 설명 -->
+    <string name="map_legend_fast">신호 없는 도로</string>
+    <string name="map_legend_city">시내</string>
+</resources>

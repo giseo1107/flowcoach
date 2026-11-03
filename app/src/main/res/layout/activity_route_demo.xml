@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 실제 도로 시연 준비: 경로 고르기 → 판단 기준값 고르기 → 이 경로에서 나올 수 있는 안내 확인 → 시작.
+     주차 중에만 여는 화면이라 스크롤을 쓴다. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/route_title"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/route_intro"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_label" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 1. 경로 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/route_section_route" />
+
+            <!-- 내 경로 만들기: 카카오 장소 검색 → 실제 경로(OSRM) → 넣을 상황 고르기. 코드에서 채운다 -->
+            <LinearLayout
+                android:id="@+id/custom_route_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/gap"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding" />
+
+            <LinearLayout
+                android:id="@+id/route_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- 2. 판단 기준값 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/route_section_tuning" />
+
+            <LinearLayout
+                android:id="@+id/preset_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/preset_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label"
+                tools:text="자동: 경로 길이에 맞춰 골라요 → 보통" />
+
+            <LinearLayout
+                android:id="@+id/custom_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!-- 3. 이 경로에서 나올 수 있는 안내 -->
+            <TextView
+                style="@style/SectionTitle"
+                android:text="@string/route_section_preview" />
+
+            <LinearLayout
+                android:id="@+id/preview_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding" />
+
+            <TextView
+                android:id="@+id/route_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_caption"
+                tools:text="· 실제 흐름이 80km/h보다 느리면 추월 후 미복귀 안내는 나오지 않아요(도로교통법)." />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 시작 전 실제 교통 확인(시작을 누르면 나타난다) -->
+    <LinearLayout
+        android:id="@+id/check_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap"
+        android:background="@drawable/bg_banner"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/check_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_label"
+            tools:text="실제 교통이 시나리오와 달라요 · 출발 45 · 도착 62km/h" />
+
+        <LinearLayout
+            android:id="@+id/check_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <Button
+                android:id="@+id/check_live"
+                style="@style/CarButton.Tonal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap"
+                android:layout_weight="1"
+                android:text="@string/check_live" />
+
+            <Button
+                android:id="@+id/check_assumed"
+                style="@style/CarButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="시나리오 흐름(92km/h)으로" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/route_close"
+            style="@style/CarButton.Tonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/gap"
+            android:layout_weight="1"
+            android:text="@string/close" />
+
+        <Button
+            android:id="@+id/route_start"
+            style="@style/CarButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/route_start" />
+    </LinearLayout>
+</LinearLayout>

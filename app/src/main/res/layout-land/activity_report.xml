@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 주행 후 흐름 리포트(가로: 앱 혼자 넓게 띄웠을 때).
+     왼쪽: 점수 링(남는 높이를 모두) · 거리/시간 · 시간 비율 막대
+     오른쪽: 다음 주행 한 가지 · 점수에서 빠진 것 · 닫기 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:padding="@dimen/screen_padding">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/gap"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/report_title"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_label" />
+
+            <com.giseo.flowcoach.ui.ScoreRingView
+                android:id="@+id/score_ring"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/gap"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/summary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_body"
+                tools:text="11.3 km · 7분 48초" />
+        </LinearLayout>
+
+        <include layout="@layout/view_report_share" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/view_report_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/gap"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card">
+
+            <LinearLayout
+                android:id="@+id/report_rows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/report_rows_title"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_label" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/close_button"
+            style="@style/CarButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:text="@string/close" />
+    </LinearLayout>
+</LinearLayout>

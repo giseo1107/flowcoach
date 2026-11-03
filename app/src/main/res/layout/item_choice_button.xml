@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 고르기 버튼 하나(기준값 프리셋, 단계). 고른 것은 코드에서 강조 색으로 바꾼다 -->
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CarButton.Tonal"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_weight="1"
+    android:maxLines="2"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:textSize="@dimen/text_label" />
